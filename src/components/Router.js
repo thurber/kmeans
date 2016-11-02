@@ -1,7 +1,8 @@
 import React from 'react'
 import DataLoader from '../containers/DataLoader'
 import DataVis from '../containers/DataVis'
-import KMeansLoader from '../containers/KMeansLoader'
+import ElbowLoader from '../containers/ElbowLoader'
+import ElbowVis from '../containers/ElbowVis'
 import KMeansVis from '../containers/KMeansVis'
 
 export default ({ hasData, hasKMeans }) => {
@@ -13,7 +14,7 @@ export default ({ hasData, hasKMeans }) => {
       <div>
         <DataLoader/>
         <DataVis/>
-        <KMeansLoader/>
+        <ElbowLoader/>
       </div>
     )
   }
@@ -21,7 +22,8 @@ export default ({ hasData, hasKMeans }) => {
     <div>
       <DataLoader/>
       <DataVis/>
-      <KMeansLoader/>
+      <ElbowLoader/>
+      <ElbowVis/>
       <KMeansVis/>
     </div>
   )
