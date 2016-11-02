@@ -11,10 +11,10 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   getRandomData: () => {
-    dispatch(Actions.setData(List(getRandomClusters(
-      getRandomUniform(500, 1000, true),
-      getRandomUniform(3, 6, true)
-    ))))
+    let N = getRandomUniform(500, 1000, true)
+    let k = getRandomUniform(3, 6, true)
+    dispatch(Actions.setData(List(getRandomClusters(N, k))))
+    dispatch(Actions.setK(k))
   },
 })
 

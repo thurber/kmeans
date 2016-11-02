@@ -4,24 +4,16 @@ import Header from './Header'
 
 export default props => (
   <div>
-    <Header title='Import Data'/>
-    <Button
-      variant='raised'
-      color='primary'
-      size='small'
-      disabled={true}
-    >
-      Load JSON
-    </Button>
+    <Header title='K-Means'/>
     <Button
       variant='raised'
       color='primary'
       size='small'
       onClick={() => {
-        props.getRandomData()
+        props.getKMeans(props.data, props.k)
       }}
     >
-      Randomize
+      Generate
     </Button>
   </div>
 )

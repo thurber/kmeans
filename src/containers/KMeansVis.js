@@ -1,19 +1,17 @@
 import { connect } from 'react-redux'
-import { List } from 'immutable'
-import Router from '../components/Router'
+import KMeansVis from '../components/KMeansVis'
 import * as Actions from '../actions/index'
 
 const mapStateToProps = (state, ownProps) => ({
-  hasData: state.get('data', List()).count() > 0,
-  hasKMeans: state.get('kmeans') ? true : false,
+  data: state.get('data'),
+  kmeans: state.get('kmeans'),
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Router)
+)(KMeansVis)
 
