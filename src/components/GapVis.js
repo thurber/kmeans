@@ -120,7 +120,7 @@ export default ({ data, kmeans, gap, width, height, margin }) => {
         </Panel>
         <Caption
           title='Figure 4:'
-          text='log plot of sums of squares of variances of k-means clusters of original data and uniform data averages'
+          text='log plot of sums of squares of variances of k-means clusters of original data and Monte Carlo data averages'
         />
       </div>
       <br/>

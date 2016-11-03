@@ -50,7 +50,7 @@ export default ({ data, kmeans, width, height, margin }) => {
       </Panel>
       <Caption
         title='Figure 7:'
-        text='k-means clusters'
+        text='k-means++ clusters'
       />
     </div>
   )
