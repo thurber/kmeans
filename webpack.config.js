@@ -19,7 +19,7 @@ const loaders = [
 
 const prod = {
   output: {
-    path: './dist/',
+    path: './docs/',
     filename: '[name].min.js',
     publicPath: '/',
     library: 'growth-charts',
@@ -45,7 +45,7 @@ const prod = {
     },
   ],
   entry: {
-    'kmeans': './src/index.js',
+    'index': './src/index.js',
   },
   plugins: [
     new Webpack.DefinePlugin({
@@ -70,7 +70,7 @@ const prod = {
 
 const dev = {
   output: {
-    path: './dist/',
+    path: './docs/',
     filename: '[name].min.js',
     publicPath: '/'
   },
@@ -83,7 +83,7 @@ const dev = {
     ]
   },
   devServer: {
-    contentBase: './dist',
+    contentBase: './docs',
     hot: true,
     quiet: true,
     host: '0.0.0.0',
