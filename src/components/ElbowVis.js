@@ -10,8 +10,8 @@ export default ({ kmeans, width, height, margin }) => {
   height = height ? height : 200
   margin = margin ? margin : 0
 
-  let x = d3.scaleLinear().range([0, width]).domain([0, 11])
-  let y = d3.scaleLinear().range([height, 0]).domain([0, 1])
+  let x = d3.scaleLinear().range([0, width]).domain([0, 10])
+  let y = d3.scaleLinear().range([height, 0]).domain([0, Math.ceil(d3.max(kmeans.map(d => d.get('Wk')).toArray()))])
 
   return (
     <div>

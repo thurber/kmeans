@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   getElbow: (D) => {
     let kMeans = {}
-    for (let k = 1; k < 11; k++) {
+    for (let k = 1; k < 10; k++) {
       kMeans[k] = Map(getKMeans(D.toArray(), k))
     }
     dispatch(Actions.setKMeans(Map(kMeans)))

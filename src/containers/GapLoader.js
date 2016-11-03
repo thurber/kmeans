@@ -1,23 +1,23 @@
 import { connect } from 'react-redux'
 import { Map } from 'immutable'
-import KMeansLoader from '../components/KMeansLoader'
-import getRandomUniform from '../methods/getRandomUniform'
-import getKMeans from '../methods/getKMeans'
+import GapLoader from '../components/GapLoader'
+import getGapStat from '../methods/getGapStat'
 import * as Actions from '../actions/index'
 
 const mapStateToProps = (state, ownProps) => ({
   data: state.get('data'),
-  k: state.get('k'),
+  kMeans: state.get('kmeans'),
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  getKMeans: (D, k) => {
-    dispatch(Actions.setKMeans(Map(getKMeans(D.toArray(), k))))
+  getGap: (D, kMeans) => {
+    let gap = getGapStat(D.toJS(), kMeans.toJS(), kMeans.count())
+    dispatch(Actions.setGap(Map(gap)))
+    dispatch(Actions.setK(parseInt(gap.k)))
   }
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(KMeansLoader)
-
+)(GapLoader)

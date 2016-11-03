@@ -24,15 +24,11 @@ let getWk = ( data, clusters, centers ) => {
   let k = centers.length
   let Wk = 0
   for ( let i = 0 ; i < k ; i++ ) {
-    let count = 0
-    let sum = 0
     for ( let j = 0 ; j < clusters.length ; j++ ) {
       if ( clusters[j] === i ) {
-        count++
-        sum += Math.pow( getNorm( data[j], centers[i] ), 2 )
+        Wk += Math.pow( getNorm( data[j], centers[i] ), 2 )
       }
     }
-    Wk += sum / ( 2 * count )
   }
   return Wk
 }

@@ -14,7 +14,6 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     let N = getRandomUniform(500, 1000, true)
     let k = getRandomUniform(3, 6, true)
     dispatch(Actions.setData(List(getRandomClusters(N, k))))
-    dispatch(Actions.setK(k))
   },
 })
 

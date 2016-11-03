@@ -49,7 +49,7 @@ export default ({ data, kmeans, width, height, margin }) => {
         </Svg>
       </Panel>
       <Caption
-        title='Figure 3:'
+        title='Figure 7:'
         text='k-means clusters'
       />
     </div>

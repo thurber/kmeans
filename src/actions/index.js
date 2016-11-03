@@ -15,3 +15,9 @@ export const setKMeans = ( K ) => ({
   type: SET_K_MEANS,
   value: K,
 })
+
+export const SET_GAP = 'SET_GAP'
+export const setGap = ( G ) => ({
+  type: SET_GAP,
+  value: G,
+})
