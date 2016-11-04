@@ -3,6 +3,7 @@ import * as d3 from 'd3'
 import Svg from './Svg'
 import Panel from 'muicss/lib/react/panel'
 import Caption from './Caption'
+import colors from '../styles/colors'
 
 export default ({ data, kmeans, gap, width, height, margin }) => {
   
@@ -28,8 +29,6 @@ export default ({ data, kmeans, gap, width, height, margin }) => {
     Math.floor(d3.min(Object.keys(gap.get('delta')).map(k => gap.get('delta')[k]))),
     Math.ceil(d3.max(Object.keys(gap.get('delta')).map(k => gap.get('delta')[k])))
   ])
-
-  let colors = d3.scaleOrdinal(d3.schemeCategory10)
 
   return (
     <div>
@@ -150,7 +149,7 @@ export default ({ data, kmeans, gap, width, height, margin }) => {
                 cy={yg(gap.get('gap')[k])}
                 r={width/100}
                 fill='none'
-                stroke='black'
+                stroke={colors(0)}
               />
             ))}
           </Svg>

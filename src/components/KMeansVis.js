@@ -3,6 +3,7 @@ import * as d3 from 'd3'
 import Svg from './Svg'
 import Panel from 'muicss/lib/react/panel'
 import Caption from './Caption'
+import colors from '../styles/colors'
 
 export default ({ data, kmeans, width, height, margin }) => {
   
@@ -12,7 +13,6 @@ export default ({ data, kmeans, width, height, margin }) => {
 
   let x = d3.scaleLinear().range([0, width]).domain([-1, 1])
   let y = d3.scaleLinear().range([height, 0]).domain([-1, 1])
-  let colors = d3.scaleOrdinal(d3.schemeCategory10)
 
   return (
     <div>

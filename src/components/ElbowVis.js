@@ -3,6 +3,7 @@ import * as d3 from 'd3'
 import Svg from './Svg'
 import Panel from 'muicss/lib/react/panel'
 import Caption from './Caption'
+import colors from '../styles/colors'
 
 export default ({ kmeans, width, height, margin }) => {
   
@@ -33,7 +34,7 @@ export default ({ kmeans, width, height, margin }) => {
               cy={y(d.get('Wk'))}
               r={width/100}
               fill='none'
-              stroke='black'
+              stroke={colors(0)}
             />
           )).toArray()}
         </Svg>

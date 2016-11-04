@@ -3,6 +3,7 @@ import * as d3 from 'd3'
 import Svg from './Svg'
 import Panel from 'muicss/lib/react/panel'
 import Caption from './Caption'
+import colors from '../styles/colors'
 
 export default ({ data, width, height, margin }) => {
   
@@ -32,7 +33,7 @@ export default ({ data, width, height, margin }) => {
               cx={x(d[0])}
               cy={y(d[1])}
               r={width/200}
-              fill='black'
+              fill={colors(0)}
             />
           ))}
         </Svg>
