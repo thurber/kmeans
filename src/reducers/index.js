@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
     case Actions.SET_HEADERS:
       return state.set('headers', action.value)
     case Actions.SET_DATA:
-      return state.set('data', action.value).set('kmeans', undefined).set('k', undefined).set('gap', undefined)
+      return state.set('data', action.value).set('kmeans', undefined).set('k', undefined).set('gap', undefined).set('x', 0).set('y', 1)
     case Actions.SET_K:
       return state.set('k', action.value)
     case Actions.SET_K_MEANS:
