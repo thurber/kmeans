@@ -8,6 +8,7 @@ export default ({headers, xIndex, yIndex, setX, setY}) => (
       style={{
         display: 'inline-block',
         width: '230px',
+        marginTop: '10px',
         verticalAlign: 'text-top',
       }}
     >
