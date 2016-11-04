@@ -33,7 +33,7 @@ let getWk = ( data, clusters, centers ) => {
   return Wk
 }
 
-let hasConverged = ( A, B, threshold = 1e-5 ) => {
+let hasConverged = ( A, B, threshold = 1e-7 ) => {
   let err = 0
   for ( let i = 0 ; i < A.length ; i++ ) {
     err += getNorm( A[i], B[i] )
