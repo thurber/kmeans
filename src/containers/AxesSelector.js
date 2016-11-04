@@ -1,19 +1,23 @@
 import { connect } from 'react-redux'
-import KMeansVis from '../components/KMeansVis'
+import AxesSelector from '../components/AxesSelector'
 import * as Actions from '../actions/index'
 
 const mapStateToProps = (state, ownProps) => ({
-  data: state.get('data'),
-  kmeans: state.get('kmeans').get(String(state.get('k'))),
+  headers: state.get('headers'),
   xIndex: state.get('x'),
   yIndex: state.get('y'),
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
+  setX: (x) => {
+    dispatch(Actions.setX(x))
+  },
+  setY: (y) => {
+    dispatch(Actions.setY(y))
+  },
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(KMeansVis)
-
+)(AxesSelector)

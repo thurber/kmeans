@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { Map, List, fromJS } from 'immutable'
 import reducers from '../reducers/index'
+import Title from './Title'
 import Router from '../containers/Router'
 import '../styles/index.scss'
 
@@ -19,6 +20,9 @@ export default  props => (
       window.devToolsExtension
     ) ? window.devToolsExtension() : undefined
   )}>
-    <Router/>
+    <div>
+      <Title/>
+      <Router/>
+    </div>
   </Provider>
 )

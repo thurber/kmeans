@@ -15,6 +15,10 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
     let k = getRandomUniform(3, 6, true)
     dispatch(Actions.setData(List(getRandomClusters(N, k))))
   },
+  loadData: (H, D) => {
+    dispatch(Actions.setHeaders(List(H)))
+    dispatch(Actions.setData(List(D)))
+  },
 })
 
 export default connect(

@@ -10,6 +10,10 @@ const mapStateToProps = (state, ownProps) => ({
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
   getElbow: (D) => {
+    if (D.count() < 10) {
+      window.alert('Not enough data!')
+      return
+    }
     let kMeans = {}
     for (let k = 1; k < 10; k++) {
       kMeans[k] = Map(getKMeans(D.toArray(), k))

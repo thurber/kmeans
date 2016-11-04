@@ -4,6 +4,8 @@ import * as Actions from '../actions/index'
 
 const mapStateToProps = (state, ownProps) => ({
   data: state.get('data'),
+  xIndex: state.get('x'),
+  yIndex: state.get('y'),
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

@@ -5,7 +5,7 @@ import Panel from 'muicss/lib/react/panel'
 import Caption from './Caption'
 import colors from '../styles/colors'
 
-export default ({ data, kmeans, gap, width, height, margin }) => {
+export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) => {
   
   width = width ? width : 200
   height = height ? height : 200
@@ -54,8 +54,8 @@ export default ({ data, kmeans, gap, width, height, margin }) => {
             {data.map((d, k) => (
               <circle
                 key={'datum-' + k}
-                cx={x(d[0])}
-                cy={y(d[1])}
+                cx={x(d[xIndex])}
+                cy={y(d[yIndex])}
                 r={width/200}
                 fill={colors(0)}
               />
@@ -63,8 +63,8 @@ export default ({ data, kmeans, gap, width, height, margin }) => {
             {gap.get('sampleUniformData').map((d, k) => (
               <circle
                 key={'uniform-datum-' + k}
-                cx={x(d[0])}
-                cy={y(d[1])}
+                cx={x(d[xIndex])}
+                cy={y(d[yIndex])}
                 r={width/200}
                 fill='black'
               />

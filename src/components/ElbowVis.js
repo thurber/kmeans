@@ -15,7 +15,14 @@ export default ({ kmeans, width, height, margin }) => {
   let y = d3.scaleLinear().range([height, 0]).domain([0, Math.ceil(d3.max(kmeans.map(d => d.get('Wk')).toArray()))])
 
   return (
-    <div>
+    <div
+      style={{
+        display: 'inline-block',
+        verticalAlign: 'text-top',
+        marginRight: '30px',
+        width: width + 2 * margin + 30 + 'px',
+      }}
+    >
       <Panel
         style={{
           display: 'inline-block',

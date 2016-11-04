@@ -6,6 +6,8 @@ const mapStateToProps = (state, ownProps) => ({
   data: state.get('data'),
   kmeans: state.get('kmeans'),
   gap: state.get('gap'),
+  xIndex: state.get('x'),
+  yIndex: state.get('y'),
 })
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
