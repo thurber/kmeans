@@ -26,7 +26,7 @@ export default () => (
     >
       Calculations and visualizations closely follow the discussion presented <a target='_blank' href='https://datasciencelab.wordpress.com/2013/12/27/finding-the-k-in-k-means-clustering/'>here</a>.
       <br/>
-      For best results, data should be normalized into a vector space with each dimension ∈ [ -1, 1 ].
+      For best results, data should be normalized into a vector space with each dimension ∈ [ 0, 1 ] or [ -1, 1 ].
       <br/>
       Data outside of this range will not be displayed in the visualizations.
       <br/>

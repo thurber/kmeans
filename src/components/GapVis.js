@@ -11,8 +11,16 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
   height = height ? height : 200
   margin = margin ? margin : 0
 
-  let x = d3.scaleLinear().range([0, width]).domain([-1, 1])
-  let y = d3.scaleLinear().range([height, 0]).domain([-1, 1])
+  let scaleMin = 0
+  for (let i = 0; i < data.count(); i++) {
+    if (!data.get(i).every(d => d >= 0)) {
+      scaleMin = -1
+      break
+    }
+  }
+
+  let x = d3.scaleLinear().range([0, width]).domain([scaleMin, 1])
+  let y = d3.scaleLinear().range([height, 0]).domain([scaleMin, 1])
 
   let xw = d3.scaleLinear().range([0, width]).domain([0, 10])
   let yw = d3.scaleLinear().range([height, 0]).domain([
