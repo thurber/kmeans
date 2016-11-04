@@ -23,6 +23,40 @@ export default ({ data, xIndex, yIndex, kmeans, width, height, margin }) => {
   let x = d3.scaleLinear().range([0, width]).domain([scaleMin, 1])
   let y = d3.scaleLinear().range([height, 0]).domain([scaleMin, 1])
 
+  let xAxis = (
+    <g>
+      <line
+        x1={x(scaleMin)}
+        x2={x(1)}
+        y1={y(0)}
+        y2={y(0)}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+    </g>
+  )
+
+  let yAxis = (
+    <g>
+      <line
+        y1={y(scaleMin)}
+        y2={y(1)}
+        x1={x(0)}
+        x2={x(0)}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+    </g>
+  )
+
   return (
     <div>
       <div
@@ -44,6 +78,8 @@ export default ({ data, xIndex, yIndex, kmeans, width, height, margin }) => {
             height={height}
             margin={margin}
           >
+            {xAxis}
+            {yAxis}
             {data.map((d, i) => (
               <circle
                 key={'datum-' + i}
