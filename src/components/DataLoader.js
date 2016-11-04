@@ -37,7 +37,7 @@ export default props => (
           let Reader = new FileReader()
           Reader.onload = e => {
             try {
-              let rows = Reader.result.split(/\r\n|\n/)
+              let rows = Reader.result.split(/\r?\n|\r/)
               let headers = []
               let data = []
               for (let i = 0; i < rows.length; i++) {
