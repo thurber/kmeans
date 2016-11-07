@@ -35,10 +35,57 @@ export default ({ kmeans, width, height, margin }) => {
         textAnchor='middle'
         style={{
           dominantBaseline: 'middle',
-          color: 'gray',
         }}
       >
         k
+      </text>
+      <line
+        x1={x(x.ticks()[1])}
+        x2={x(x.ticks()[1])}
+        y1={y(y.domain()[0]) - height / 50}
+        y2={y(y.domain()[0]) + height / 50}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        x={x(x.ticks()[1])}
+        y={y(y.domain()[0]) + 2 * height / 50}
+        fontSize='8'
+        textAnchor='middle'
+        style={{
+          dominantBaseline: 'hanging',
+          fill: 'gray',
+        }}
+      >
+        {x.ticks()[1]}
+      </text>
+      <line
+        x1={x(x.ticks()[x.ticks().length - 2])}
+        x2={x(x.ticks()[x.ticks().length - 2])}
+        y1={y(y.domain()[0]) - height / 50}
+        y2={y(y.domain()[0]) + height / 50}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        x={x(x.ticks()[x.ticks().length - 2])}
+        y={y(y.domain()[0]) + 2 * height / 50}
+        fontSize='8'
+        textAnchor='middle'
+        style={{
+          dominantBaseline: 'hanging',
+          fill: 'gray',
+        }}
+      >
+        {x.ticks()[x.ticks().length - 2]}
       </text>
     </g>
   )
@@ -65,10 +112,57 @@ export default ({ kmeans, width, height, margin }) => {
         writingMode='tb'
         style={{
           dominantBaseline: 'middle',
-          color: 'gray',
         }}
       >
         Wk
+      </text>
+      <line
+        y1={y(y.ticks()[0])}
+        y2={y(y.ticks()[0])}
+        x1={x(x.domain()[0]) - width / 50}
+        x2={x(x.domain()[0])}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        y={y(y.ticks()[0])}
+        x={x(x.domain()[0]) - 2 * height / 50}
+        fontSize='8'
+        textAnchor='end'
+        style={{
+          dominantBaseline: 'middle',
+          fill: 'gray',
+        }}
+      >
+        {y.ticks()[0]}
+      </text>
+      <line
+        y1={y(y.ticks()[y.ticks().length - 1])}
+        y2={y(y.ticks()[y.ticks().length - 1])}
+        x1={x(x.domain()[0]) - width / 50}
+        x2={x(x.domain()[0]) + width / 50}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        y={y(y.ticks()[y.ticks().length - 1])}
+        x={x(x.domain()[0]) - 2 * width / 50}
+        fontSize='8'
+        textAnchor='end'
+        style={{
+          dominantBaseline: 'middle',
+          fill: 'gray',
+        }}
+      >
+        {y.ticks()[y.ticks().length - 1]}
       </text>
     </g>
   )

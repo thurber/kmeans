@@ -22,21 +22,21 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
   let x = d3.scaleLinear().range([0, width]).domain([scaleMin, 1])
   let y = d3.scaleLinear().range([height, 0]).domain([scaleMin, 1])
 
-  let xw = d3.scaleLinear().range([0, width]).domain([0, 10])
+  let xw = d3.scaleLinear().range([0, width]).domain([0, 10]).nice()
   let yw = d3.scaleLinear().range([height, 0]).domain([
     Math.floor(d3.min(Object.keys(gap.get('Wk')).map(k => gap.get('Wk')[k]))),
     Math.ceil(d3.max(Object.keys(gap.get('Wkb')).map(k => gap.get('Wkb')[k])))
-  ])
+  ]).nice()
   
   let yg = d3.scaleLinear().range([height, 0]).domain([
     Math.floor(d3.min(Object.keys(gap.get('gap')).map(k => gap.get('gap')[k]))),
     Math.ceil(d3.max(Object.keys(gap.get('gap')).map(k => gap.get('gap')[k])))
-  ])
+  ]).nice()
 
   let yd = d3.scaleLinear().range([height, 0]).domain([
     Math.floor(d3.min(Object.keys(gap.get('delta')).map(k => gap.get('delta')[k])) * 50)/50,
     Math.ceil(d3.max(Object.keys(gap.get('delta')).map(k => gap.get('delta')[k])) * 50)/50
-  ])
+  ]).nice().nice()
   
   let xAxis = (
     <g>
@@ -98,6 +98,54 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
       >
         k
       </text>
+      <line
+        x1={xw(xw.ticks()[1])}
+        x2={xw(xw.ticks()[1])}
+        y1={yw(yw.domain()[0]) - height / 50}
+        y2={yw(yw.domain()[0]) + height / 50}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        x={xw(xw.ticks()[1])}
+        y={yw(yw.domain()[0]) + 2 * height / 50}
+        fontSize='8'
+        textAnchor='middle'
+        style={{
+          dominantBaseline: 'hanging',
+          fill: 'gray',
+        }}
+      >
+        {xw.ticks()[1]}
+      </text>
+      <line
+        x1={xw(xw.ticks()[xw.ticks().length - 2])}
+        x2={xw(xw.ticks()[xw.ticks().length - 2])}
+        y1={yw(yw.domain()[0]) - height / 50}
+        y2={yw(yw.domain()[0]) + height / 50}
+        style={{
+          stroke: 'gray',
+          opacityw: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        x={xw(xw.ticks()[xw.ticks().length - 2])}
+        y={yw(yw.domain()[0]) + 2 * height / 50}
+        fontSize='8'
+        textAnchor='middle'
+        style={{
+          dominantBaseline: 'hanging',
+          fill: 'gray',
+        }}
+      >
+        {xw.ticks()[xw.ticks().length - 2]}
+      </text>
     </g>
   )
   
@@ -129,6 +177,54 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
       >
         log Wk
       </text>
+      <line
+        y1={yw(yw.ticks()[0])}
+        y2={yw(yw.ticks()[0])}
+        x1={xw(xw.domain()[0]) - width / 50}
+        x2={xw(xw.domain()[0])}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        y={yw(yw.ticks()[0])}
+        x={xw(xw.domain()[0]) - 2 * height / 50}
+        fontSize='8'
+        textAnchor='end'
+        style={{
+          dominantBaseline: 'middle',
+          fill: 'gray',
+        }}
+      >
+        {yw.ticks()[0]}
+      </text>
+      <line
+        y1={yw(yw.ticks()[yw.ticks().length - 1])}
+        y2={yw(yw.ticks()[yw.ticks().length - 1])}
+        x1={xw(xw.domain()[0]) - width / 50}
+        x2={xw(xw.domain()[0]) + width / 50}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        y={yw(yw.ticks()[yw.ticks().length - 1])}
+        x={xw(xw.domain()[0]) - 2 * width / 50}
+        fontSize='8'
+        textAnchor='end'
+        style={{
+          dominantBaseline: 'middle',
+          fill: 'gray',
+        }}
+      >
+        {yw.ticks()[yw.ticks().length - 1]}
+      </text>
     </g>
   )
   
@@ -157,6 +253,54 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
         }}
       >
         k
+      </text>
+      <line
+        x1={xw(xw.ticks()[1])}
+        x2={xw(xw.ticks()[1])}
+        y1={yg(yg.domain()[0]) - height / 50}
+        y2={yg(yg.domain()[0]) + height / 50}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        x={xw(xw.ticks()[1])}
+        y={yg(yg.domain()[0]) + 2 * height / 50}
+        fontSize='8'
+        textAnchor='middle'
+        style={{
+          dominantBaseline: 'hanging',
+          fill: 'gray',
+        }}
+      >
+        {xw.ticks()[1]}
+      </text>
+      <line
+        x1={xw(xw.ticks()[xw.ticks().length - 2])}
+        x2={xw(xw.ticks()[xw.ticks().length - 2])}
+        y1={yg(yg.domain()[0]) - height / 50}
+        y2={yg(yg.domain()[0]) + height / 50}
+        style={{
+          stroke: 'gray',
+          opacityg: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        x={xw(xw.ticks()[xw.ticks().length - 2])}
+        y={yg(yg.domain()[0]) + 2 * height / 50}
+        fontSize='8'
+        textAnchor='middle'
+        style={{
+          dominantBaseline: 'hanging',
+          fill: 'gray',
+        }}
+      >
+        {xw.ticks()[xw.ticks().length - 2]}
       </text>
     </g>
   )
@@ -189,6 +333,54 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
       >
         Gap
       </text>
+      <line
+        y1={yg(yg.ticks()[0])}
+        y2={yg(yg.ticks()[0])}
+        x1={xw(xw.domain()[0]) - width / 50}
+        x2={xw(xw.domain()[0])}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        y={yg(yg.ticks()[0])}
+        x={xw(xw.domain()[0]) - 2 * height / 50}
+        fontSize='8'
+        textAnchor='end'
+        style={{
+          dominantBaseline: 'middle',
+          fill: 'gray',
+        }}
+      >
+        {yg.ticks()[0]}
+      </text>
+      <line
+        y1={yg(yg.ticks()[yg.ticks().length - 1])}
+        y2={yg(yg.ticks()[yg.ticks().length - 1])}
+        x1={xw(xw.domain()[0]) - width / 50}
+        x2={xw(xw.domain()[0]) + width / 50}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        y={yg(yg.ticks()[yg.ticks().length - 1])}
+        x={xw(xw.domain()[0]) - 2 * width / 50}
+        fontSize='8'
+        textAnchor='end'
+        style={{
+          dominantBaseline: 'middle',
+          fill: 'gray',
+        }}
+      >
+        {yg.ticks()[yg.ticks().length - 1]}
+      </text>
     </g>
   )
   
@@ -217,6 +409,54 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
         }}
       >
         k
+      </text>
+      <line
+        x1={xw(xw.ticks()[1])}
+        x2={xw(xw.ticks()[1])}
+        y1={yd(yd.domain()[0]) - height / 50}
+        y2={yd(yd.domain()[0]) + height / 50}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        x={xw(xw.ticks()[1])}
+        y={yd(yd.domain()[0]) + 2 * height / 50}
+        fontSize='8'
+        textAnchor='middle'
+        style={{
+          dominantBaseline: 'hanging',
+          fill: 'gray',
+        }}
+      >
+        {xw.ticks()[1]}
+      </text>
+      <line
+        x1={xw(xw.ticks()[xw.ticks().length - 2])}
+        x2={xw(xw.ticks()[xw.ticks().length - 2])}
+        y1={yd(yd.domain()[0]) - height / 50}
+        y2={yd(yd.domain()[0]) + height / 50}
+        style={{
+          stroke: 'gray',
+          opacityd: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        x={xw(xw.ticks()[xw.ticks().length - 2])}
+        y={yd(yd.domain()[0]) + 2 * height / 50}
+        fontSize='8'
+        textAnchor='middle'
+        style={{
+          dominantBaseline: 'hanging',
+          fill: 'gray',
+        }}
+      >
+        {xw.ticks()[xw.ticks().length - 2]}
       </text>
     </g>
   )
@@ -248,6 +488,54 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
         }}
       >
         Gap(k) - ( Gap(k+1) - s(k+1) )
+      </text>
+      <line
+        y1={yd(yd.ticks()[0])}
+        y2={yd(yd.ticks()[0])}
+        x1={xw(xw.domain()[0]) - width / 50}
+        x2={xw(xw.domain()[0])}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        y={yd(yd.ticks()[0])}
+        x={xw(xw.domain()[0]) - 2 * height / 50}
+        fontSize='8'
+        textAnchor='end'
+        style={{
+          dominantBaseline: 'middle',
+          fill: 'gray',
+        }}
+      >
+        {yd.ticks()[0]}
+      </text>
+      <line
+        y1={yd(yd.ticks()[yd.ticks().length - 1])}
+        y2={yd(yd.ticks()[yd.ticks().length - 1])}
+        x1={xw(xw.domain()[0]) - width / 50}
+        x2={xw(xw.domain()[0]) + width / 50}
+        style={{
+          stroke: 'gray',
+          opacity: 0.5,
+          strokeWidth: width/200,
+          shapeRendering: 'crispEdges',
+        }}
+      />
+      <text
+        y={yd(yd.ticks()[yd.ticks().length - 1])}
+        x={xw(xw.domain()[0]) - 2 * width / 50}
+        fontSize='8'
+        textAnchor='end'
+        style={{
+          dominantBaseline: 'middle',
+          fill: 'gray',
+        }}
+      >
+        {yd.ticks()[yd.ticks().length - 1]}
       </text>
     </g>
   )
