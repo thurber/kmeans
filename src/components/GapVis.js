@@ -34,9 +34,9 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
   ]).nice()
 
   let yd = d3.scaleLinear().range([height, 0]).domain([
-    Math.floor(d3.min(Object.keys(gap.get('delta')).map(k => gap.get('delta')[k])) * 50)/50,
-    Math.ceil(d3.max(Object.keys(gap.get('delta')).map(k => gap.get('delta')[k])) * 50)/50
-  ]).nice().nice()
+    d3.min(Object.keys(gap.get('delta')).map(k => gap.get('delta')[k])),
+    d3.max(Object.keys(gap.get('delta')).map(k => gap.get('delta')[k]))
+  ]).nice()
   
   let xAxis = (
     <g>
