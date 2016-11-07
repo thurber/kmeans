@@ -39,3 +39,9 @@ export const setGap = ( G ) => ({
   type: SET_GAP,
   value: G,
 })
+
+export const SET_SHOW_CLUSTER_TABLE = 'SET_SHOW_CLUSTER_TABLE'
+export const setShowClusterTable = ( b ) => ({
+  type: SET_SHOW_CLUSTER_TABLE,
+  value: b,
+})

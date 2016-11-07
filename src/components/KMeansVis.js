@@ -2,11 +2,12 @@ import React from 'react'
 import * as d3 from 'd3'
 import Svg from './Svg'
 import Panel from 'muicss/lib/react/panel'
+import Checkbox from 'muicss/lib/react/checkbox'
 import AxesSelector from '../containers/AxesSelector'
 import Caption from './Caption'
 import colors from '../styles/colors'
 
-export default ({ data, xIndex, yIndex, kmeans, width, height, margin }) => {
+export default ({ rawData, data, clusterData, xIndex, yIndex, kmeans, showClusterTable, setShowClusterTable, width, height, margin }) => {
   
   width = width ? width : 200
   height = height ? height : 200
@@ -107,6 +108,65 @@ export default ({ data, xIndex, yIndex, kmeans, width, height, margin }) => {
         />
       </div>
       <AxesSelector/>
+      <Checkbox
+        label='show cluster table'
+        checked={showClusterTable}
+        onChange={(e) => {
+          setShowClusterTable(e.target.checked)
+        }}
+      />
+      {showClusterTable ?
+        <table
+          style={{
+            textAlign: 'center',
+            border: 'double 3px gray',
+            borderSpacing: '0',
+          }}
+        >
+          <thead>
+            <tr>
+              <th
+                style={{
+                  minWidth: '75px',
+                  textAlign: 'center',
+                  borderBottom: 'double 3px gray',
+                  borderRight: 'solid 1px gray',
+                }}
+              >
+                row
+              </th>
+              <th
+                style={{
+                  minWidth: '75px',
+                  textAlign: 'center',
+                  borderBottom: 'double 3px gray',
+                }}
+              >
+                cluster
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {clusterData.map((d, i) => (
+              <tr key={'row-' + i}>
+                <td
+                  style={{
+                    borderBottom: 'solid 1px gray',
+                    borderRight: 'solid 1px gray',
+                  }}
+                >{i + 1}</td>
+                <td
+                  style={{
+                    borderBottom: 'solid 1px gray',
+                  }}
+                >{(d + 1) || ''}</td>
+              </tr>
+            ))}
+            </tbody>
+        </table>
+        :
+        undefined
+      }
     </div>
   )
 }

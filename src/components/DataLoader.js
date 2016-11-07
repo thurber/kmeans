@@ -54,10 +54,7 @@ export default props => (
                   }
                 }
                 if (i > 0) {
-                  // filter out rows that are missing data
-                  if (datum.length > 0 && datum.every(d => d)) {
-                    data.push(datum)
-                  }
+                  data.push(datum)
                 }
               }
               props.loadData(headers, data)
