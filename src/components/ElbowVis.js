@@ -7,8 +7,8 @@ import colors from '../styles/colors'
 
 export default ({ kmeans, width, height, margin }) => {
   
-  width = width ? width : 200
-  height = height ? height : 200
+  width = width ? width : 250
+  height = height ? height : 250
   margin = margin ? margin : 0.075
 
   let x = d3.scaleLinear().range([0, width]).domain([0, 10])
