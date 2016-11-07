@@ -1,6 +1,7 @@
 import React from 'react'
+import SvgDownloader from './SvgDownloader'
 
-export default ({ title, text }) => (
+export default ({ title, text, docId }) => (
   <div
     className='mui--text-caption'
     style={{
@@ -11,5 +12,6 @@ export default ({ title, text }) => (
       <strong>{title} </strong>
       {text}
     </i>
+    {docId ? <SvgDownloader docId={docId} style={{marginLeft: '5px'}}/> : undefined}
   </div>
 )

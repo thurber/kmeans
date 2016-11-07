@@ -9,7 +9,7 @@ export default ({ kmeans, width, height, margin }) => {
   
   width = width ? width : 200
   height = height ? height : 200
-  margin = margin ? margin : 0.05
+  margin = margin ? margin : 0.075
 
   let x = d3.scaleLinear().range([0, width]).domain([0, 10])
   let y = d3.scaleLinear().range([height, 0]).domain([0, Math.ceil(d3.max(kmeans.map(d => d.get('Wk')).toArray()))])
@@ -183,6 +183,7 @@ export default ({ kmeans, width, height, margin }) => {
         }}
       >
         <Svg
+          docId='fig2'
           width={width}
           height={height}
           margin={margin}
@@ -202,6 +203,7 @@ export default ({ kmeans, width, height, margin }) => {
         </Svg>
       </Panel>
       <Caption
+        docId='fig2'
         title='Figure 2:'
         text='elbow chart'
       />

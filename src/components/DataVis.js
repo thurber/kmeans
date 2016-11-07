@@ -1,7 +1,7 @@
 import React from 'react'
 import * as d3 from 'd3'
-import Svg from './Svg'
 import Panel from 'muicss/lib/react/panel'
+import Svg from './Svg'
 import AxesSelector from '../containers/AxesSelector'
 import Caption from './Caption'
 import colors from '../styles/colors'
@@ -74,6 +74,7 @@ export default ({ data, xIndex, yIndex, width, height, margin }) => {
           }}
         >
           <Svg
+            docId='fig1'
             width={width}
             height={height}
             margin={margin}
@@ -94,6 +95,7 @@ export default ({ data, xIndex, yIndex, width, height, margin }) => {
         <Caption
           title='Figure 1:'
           text='The raw data'
+          docId='fig1'
         />
       </div>
       <AxesSelector/>

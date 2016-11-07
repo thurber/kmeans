@@ -9,7 +9,7 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
   
   width = width ? width : 200
   height = height ? height : 200
-  margin = margin ? margin : 0.05
+  margin = margin ? margin : 0.075
 
   let scaleMin = 0
   for (let i = 0; i < data.count(); i++) {
@@ -557,6 +557,7 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
           }}
         >
           <Svg
+            docId='fig3'
             width={width}
             height={height}
             margin={margin}
@@ -584,6 +585,7 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
           </Svg>
         </Panel>
         <Caption
+          docId='fig3'
           title='Figure 3:'
           text='original data and example Monte Carlo data'
         />
@@ -603,6 +605,7 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
           }}
         >
           <Svg
+            docId='fig4'
             width={width}
             height={height}
             margin={margin}
@@ -632,6 +635,7 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
           </Svg>
         </Panel>
         <Caption
+          docId='fig4'
           title='Figure 4:'
           text='log plot of sums of squares of variances of k-means clusters of original data and Monte Carlo data averages'
         />
@@ -652,6 +656,7 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
           }}
         >
           <Svg
+            docId='fig5'
             width={width}
             height={height}
             margin={margin}
@@ -671,6 +676,7 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
           </Svg>
         </Panel>
         <Caption
+          docId='fig5'
           title='Figure 5:'
           text='gap'
         />
@@ -690,6 +696,7 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
           }}
         >
           <Svg
+            docId='fig6'
             width={width}
             height={height}
             margin={margin}
@@ -709,6 +716,7 @@ export default ({ data, xIndex, yIndex, kmeans, gap, width, height, margin }) =>
           </Svg>
         </Panel>
         <Caption
+          docId='fig6'
           title='Figure 6:'
           text='delta'
         />

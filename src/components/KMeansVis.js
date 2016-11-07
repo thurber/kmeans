@@ -75,6 +75,7 @@ export default ({ rawData, data, clusterData, xIndex, yIndex, kmeans, showCluste
           }}
         >
           <Svg
+            docId='fig7'
             width={width}
             height={height}
             margin={margin}
@@ -103,6 +104,7 @@ export default ({ rawData, data, clusterData, xIndex, yIndex, kmeans, showCluste
           </Svg>
         </Panel>
         <Caption
+          docId='fig7'
           title='Figure 7:'
           text='k-means++ clusters'
         />
